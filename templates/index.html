@@ -1,52 +1,105 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
   <meta charset="UTF-8" />
-  <title>Ada bebek japonca bulmacası</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=3" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#fff5f8" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <title>Ada’nın Japonca Kelime Avı</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=6" />
 </head>
-
 <body>
-  <!-- Hidden SVG for filters -->
-  <svg style="width:0; height:0; position:absolute;" aria-hidden="true">
-    <defs>
-      <filter id="pencil-texture" x="-20%" y="-20%" width="140%" height="140%">
-        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" result="noise" />
-        <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
-      </filter>
-    </defs>
-  </svg>
+  <div class="app-shell">
+    <header class="hero-card">
+      <div class="brand-block">
+        <div class="brand-kicker">日本語 • Japonca</div>
+        <h1>Ada’nın Kelime Avı <span aria-hidden="true">🌸</span></h1>
+        <p id="puzzleSubtitle">Hiragana kelimelerini bul, çiz ve öğren.</p>
+      </div>
 
-  <div class="game-wrapper">
-    <header class="top-bar">
-      <div class="timer">
-        ⏱ <span id="timer">03:00</span>
+      <div class="game-stats" aria-label="Oyun durumu">
+        <div class="stat-card">
+          <span class="stat-label">Süre</span>
+          <strong id="timer">03:00</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Skor</span>
+          <strong id="score">0</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Bulunan</span>
+          <strong id="progress">0/0</strong>
+        </div>
       </div>
-      <div class="score">
-        Skor: <span id="score">0</span>
-      </div>
-      <button id="newGameBtn">🎀 Yeni Oyun 🎀</button>
     </header>
 
-    <main class="main-layout">
-      <section class="grid-container">
-        <div id="grid" class="grid"></div>
-        <svg id="grid-overlay" class="grid-overlay"></svg>
+    <section class="control-card" aria-label="Oyun kontrolleri">
+      <label class="category-control" for="categorySelect">
+        <span>Kategori</span>
+        <select id="categorySelect" aria-label="Bulmaca kategorisi">
+          <option value="body">Vücut</option>
+        </select>
+      </label>
+
+      <div class="control-actions">
+        <button id="toggleHintsBtn" class="secondary-btn" type="button" aria-pressed="false">
+          <span aria-hidden="true">👁️</span>
+          <span>Yazımı göster</span>
+        </button>
+        <button id="newGameBtn" class="primary-btn" type="button">
+          <span aria-hidden="true">🎀</span>
+          <span>Yeni Oyun</span>
+        </button>
+      </div>
+    </section>
+
+    <main class="game-layout">
+      <section class="board-card" aria-label="Kelime bulmacası">
+        <div class="board-header">
+          <div>
+            <span class="eyebrow">Bulmaca</span>
+            <h2 id="puzzleTitle">Vücut</h2>
+          </div>
+          <div class="drag-tip"><span aria-hidden="true">✏️</span> Parmak veya Apple Pencil ile çiz</div>
+        </div>
+
+        <div id="gridStage" class="grid-stage">
+          <div id="grid" class="grid" role="grid" aria-label="Japonca kelime bulmacası"></div>
+          <svg id="grid-overlay" class="grid-overlay" aria-hidden="true"></svg>
+        </div>
+
+        <div id="boardStatus" class="board-status" aria-live="polite"></div>
       </section>
-      <section class="side-panel">
-        <h2>Kelime Listesi <button id="toggleHintsBtn" class="hint-btn" title="Göster/Gizle">👁️</button></h2>
+
+      <aside class="word-card" aria-label="Kelime listesi">
+        <div class="word-card-header">
+          <div>
+            <span class="eyebrow">Kelime Listesi</span>
+            <h2>Bul ve öğren</h2>
+          </div>
+          <span id="wordCountBadge" class="count-badge">0 kelime</span>
+        </div>
         <ul id="wordList" class="word-list"></ul>
         <div class="legend">
-          <p><strong>Kana</strong> – Japonca yazım</p>
-          <p><strong>Romaji</strong> – Latin harfleriyle okunuş</p>
-          <p><strong>TR</strong> – Türkçe anlam</p>
+          <span><b>Kana</b> Japonca yazım</span>
+          <span><b>Romaji</b> okunuş</span>
+          <span><b>TR</b> anlam</span>
         </div>
-      </section>
+      </aside>
     </main>
   </div>
 
-  <script src="{{ url_for('static', filename='js/game.js') }}?v=5"></script>
-</body>
+  <div id="resultSheet" class="result-sheet" hidden>
+    <div class="result-backdrop"></div>
+    <div class="result-dialog" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+      <div id="resultEmoji" class="result-emoji">🌸</div>
+      <h2 id="resultTitle">Harika!</h2>
+      <p id="resultMessage"></p>
+      <button id="playAgainBtn" class="primary-btn" type="button">Bir daha oyna</button>
+    </div>
+  </div>
 
+  <script src="{{ url_for('static', filename='js/game.js') }}?v=8"></script>
+</body>
 </html>
