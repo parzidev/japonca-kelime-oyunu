@@ -1,162 +1,41 @@
 {
+  "id": "body",
+  "title": "Vücut",
+  "emoji": "🫶",
   "category": "body_parts_japanese",
   "language": "ja",
   "gridSize": 12,
   "words": [
-    {
-      "kana": "あたま",
-      "romaji": "atama",
-      "meaning_tr": "baş"
-    },
-    {
-      "kana": "かみのけ",
-      "romaji": "kami no ke",
-      "meaning_tr": "saç"
-    },
-    {
-      "kana": "くち",
-      "romaji": "kuchi",
-      "meaning_tr": "ağız"
-    },
-    {
-      "kana": "みみ",
-      "romaji": "mimi",
-      "meaning_tr": "kulak"
-    },
-    {
-      "kana": "め",
-      "romaji": "me",
-      "meaning_tr": "göz"
-    },
-    {
-      "kana": "はな",
-      "romaji": "hana",
-      "meaning_tr": "burun"
-    },
-    {
-      "kana": "かお",
-      "romaji": "kao",
-      "meaning_tr": "yüz"
-    },
-    {
-      "kana": "て",
-      "romaji": "te",
-      "meaning_tr": "el"
-    },
-    {
-      "kana": "うで",
-      "romaji": "ude",
-      "meaning_tr": "kol"
-    },
-    {
-      "kana": "あし",
-      "romaji": "ashi",
-      "meaning_tr": "bacak / ayak"
-    },
-    {
-      "kana": "ゆび",
-      "romaji": "yubi",
-      "meaning_tr": "parmak"
-    },
-    {
-      "kana": "からだ",
-      "romaji": "karada",
-      "meaning_tr": "vücut"
-    },
-    {
-      "kana": "せなか",
-      "romaji": "senaka",
-      "meaning_tr": "sırt"
-    },
-    {
-      "kana": "おなか",
-      "romaji": "onaka",
-      "meaning_tr": "karın"
-    },
-    {
-      "kana": "むね",
-      "romaji": "mune",
-      "meaning_tr": "göğüs"
-    },
-    {
-      "kana": "こし",
-      "romaji": "koshi",
-      "meaning_tr": "bel"
-    },
-    {
-      "kana": "ひざ",
-      "romaji": "hiza",
-      "meaning_tr": "diz"
-    },
-    {
-      "kana": "のど",
-      "romaji": "nodo",
-      "meaning_tr": "boğaz"
-    },
-    {
-      "kana": "ひふ",
-      "romaji": "hifu",
-      "meaning_tr": "cilt"
-    },
-    {
-      "kana": "ほね",
-      "romaji": "hone",
-      "meaning_tr": "kemik"
-    },
-    {
-      "kana": "きんにく",
-      "romaji": "kin'niku",
-      "meaning_tr": "kas"
-    },
-    {
-      "kana": "しんぞう",
-      "romaji": "shinzou",
-      "meaning_tr": "kalp"
-    },
-    {
-      "kana": "い",
-      "romaji": "i",
-      "meaning_tr": "mide"
-    },
-    {
-      "kana": "かかと",
-      "romaji": "kakato",
-      "meaning_tr": "topuk"
-    },
-    {
-      "kana": "つめ",
-      "romaji": "tsume",
-      "meaning_tr": "tırnak"
-    },
-    {
-      "kana": "まゆげ",
-      "romaji": "mayuge",
-      "meaning_tr": "kaş"
-    },
-    {
-      "kana": "まつげ",
-      "romaji": "matsuge",
-      "meaning_tr": "kirpik"
-    },
-    {
-      "kana": "ほっぺ",
-      "romaji": "hoppe",
-      "meaning_tr": "yanak"
-    },
-    {
-      "kana": "あご",
-      "romaji": "ago",
-      "meaning_tr": "çene"
-    },
-    {
-      "kana": "きぶん",
-      "romaji": "kibun",
-      "meaning_tr": "his/ruh hali"
-    },
-    {
-      "kana": "いたい",
-      "romaji": "itai",
-      "meaning_tr": "ağrı"
-    }
+    {"kana":"あたま","romaji":"atama","meaning_tr":"baş"},
+    {"kana":"かみのけ","romaji":"kami no ke","meaning_tr":"saç"},
+    {"kana":"くち","romaji":"kuchi","meaning_tr":"ağız"},
+    {"kana":"みみ","romaji":"mimi","meaning_tr":"kulak"},
+    {"kana":"め","romaji":"me","meaning_tr":"göz"},
+    {"kana":"はな","romaji":"hana","meaning_tr":"burun"},
+    {"kana":"かお","romaji":"kao","meaning_tr":"yüz"},
+    {"kana":"て","romaji":"te","meaning_tr":"el"},
+    {"kana":"うで","romaji":"ude","meaning_tr":"kol"},
+    {"kana":"あし","romaji":"ashi","meaning_tr":"bacak / ayak"},
+    {"kana":"ゆび","romaji":"yubi","meaning_tr":"parmak"},
+    {"kana":"からだ","romaji":"karada","meaning_tr":"vücut"},
+    {"kana":"せなか","romaji":"senaka","meaning_tr":"sırt"},
+    {"kana":"おなか","romaji":"onaka","meaning_tr":"karın"},
+    {"kana":"むね","romaji":"mune","meaning_tr":"göğüs"},
+    {"kana":"こし","romaji":"koshi","meaning_tr":"bel"},
+    {"kana":"ひざ","romaji":"hiza","meaning_tr":"diz"},
+    {"kana":"のど","romaji":"nodo","meaning_tr":"boğaz"},
+    {"kana":"ひふ","romaji":"hifu","meaning_tr":"cilt"},
+    {"kana":"ほね","romaji":"hone","meaning_tr":"kemik"},
+    {"kana":"きんにく","romaji":"kin'niku","meaning_tr":"kas"},
+    {"kana":"しんぞう","romaji":"shinzou","meaning_tr":"kalp"},
+    {"kana":"い","romaji":"i","meaning_tr":"mide"},
+    {"kana":"かかと","romaji":"kakato","meaning_tr":"topuk"},
+    {"kana":"つめ","romaji":"tsume","meaning_tr":"tırnak"},
+    {"kana":"まゆげ","romaji":"mayuge","meaning_tr":"kaş"},
+    {"kana":"まつげ","romaji":"matsuge","meaning_tr":"kirpik"},
+    {"kana":"ほっぺ","romaji":"hoppe","meaning_tr":"yanak"},
+    {"kana":"あご","romaji":"ago","meaning_tr":"çene"},
+    {"kana":"きぶん","romaji":"kibun","meaning_tr":"his / ruh hali"},
+    {"kana":"いたい","romaji":"itai","meaning_tr":"ağrılı / acıyor"}
   ]
 }
