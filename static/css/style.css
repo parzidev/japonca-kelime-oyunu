@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+
+:root {
+  --bg-color: #fff0f5;
+  /* LavenderBlush */
+  --card-bg: #ffffff;
+  --primary-pink: #ffb7c5;
+  /* Cherry Blossom Pink */
+  --accent-pink: #ff69b4;
+  /* HotPink */
+  --text-color: #4a4a4a;
+  --shadow-color: rgba(255, 105, 180, 0.2);
+  --highlight-yellow: rgba(255, 255, 150, 0.6);
+  --highlight-green: rgba(152, 251, 152, 0.6);
+  /* PaleGreen */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Yomogi', cursive, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: radial-gradient(var(--primary-pink) 2px, transparent 2px);
+  background-size: 30px 30px;
+}
+
+.game-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  background: var(--card-bg);
+  box-shadow: 0 15px 35px var(--shadow-color);
+  border-radius: 30px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 5px solid #fff;
+  position: relative;
+}
+
+/* Cute ribbon decoration on top corner */
+.game-wrapper::after {
+  content: '🎀';
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  z-index: 10;
+  transform: rotate(15deg);
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: #fff;
+  border-bottom: 2px dashed var(--primary-pink);
+}
+
+.top-bar .timer,
+.top-bar .score {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--accent-pink);
+  text-shadow: 1px 1px 0 #fff;
+}
+
+.top-bar button {
+  border: 2px solid var(--accent-pink);
+  padding: 10px 25px;
+  border-radius: 50px;
+  background: #fff;
+  color: var(--accent-pink);
+  font-family: 'Yomogi', cursive;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+.top-bar button:hover {
+  transform: translateY(-2px);
+  background: var(--accent-pink);
+  color: #fff;
+  box-shadow: 0 6px 15px var(--shadow-color);
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  padding: 30px;
+  height: calc(100vh - 100px);
+  overflow: hidden;
+}
+
+.grid-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* Keep at top */
+  padding: 20px;
+  background: #fff;
+  border-radius: 20px;
+  position: relative;
+  border: 2px solid var(--bg-color);
+}
+
+.grid {
+  display: grid;
+  gap: 0;
+  user-select: none;
+  touch-action: none;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  overflow: visible;
+}
+
+.cell {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  color: #555;
+  transition: color 0.2s;
+}
+
+.cell:hover {
+  color: var(--accent-pink);
+}
+
+/* SVG Line Styles */
+line.selection-line {
+  stroke: #000000;
+  stroke-width: 3px;
+  stroke-linecap: round;
+  fill: none;
+  filter: url(#pencil-texture);
+  opacity: 0.8;
+}
+
+line.found-line {
+  stroke: #000000;
+  stroke-width: 3px;
+  stroke-linecap: round;
+  fill: none;
+  opacity: 0.9;
+  filter: url(#pencil-texture);
+}
+
+.side-panel {
+  padding: 25px;
+  background: #fff;
+  border: 2px solid var(--primary-pink);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: inset 0 0 20px var(--bg-color);
+}
+
+.side-panel h2 {
+  margin-top: 0;
+  text-align: center;
+  border-bottom: 2px dashed var(--primary-pink);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  color: var(--accent-pink);
+  font-size: 1.8rem;
+}
+
+.word-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  flex-grow: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-pink) #fff;
+}
+
+.word-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.word-list::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+.word-list::-webkit-scrollbar-thumb {
+  background-color: var(--primary-pink);
+  border-radius: 20px;
+}
+
+.word-list li {
+  padding: 10px 15px;
+  border-bottom: 1px dotted var(--primary-pink);
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  transition: background 0.2s;
+}
+
+.word-list li:hover {
+  background: var(--bg-color);
+}
+
+.word-list li span.kana {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--text-color);
+}
+
+.word-list li.found {
+  color: #bbb;
+  background: #fafafa;
+}
+
+.word-list li.found::before {
+  content: '🌸';
+  /* Flower icon for found words */
+  position: absolute;
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+}
+
+.legend {
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 2px dashed var(--primary-pink);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+    height: auto;
+    /* Allow scroll on mobile */
+    overflow: visible;
+  }
+
+  .side-panel {
+    margin-top: 20px;
+    height: 300px;
+    /* Fixed height for sidebar on mobile */
+  }
+}
+
+.hint-btn {
+  background: #fff;
+  border: 2px solid var(--accent-pink);
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: 10px;
+  vertical-align: middle;
+  color: var(--accent-pink);
+  transition: all 0.2s;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hint-btn:hover {
+  background: var(--accent-pink);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.blur-text {
+  filter: blur(6px);
+  user-select: none;
+  opacity: 0.7;
+  transition: filter 0.3s, opacity 0.3s;
+  display: inline-block;
+  /* Ensure filter works */
+}
+
+.word-list li.found .blur-text {
+  filter: blur(0);
+  /* Reveal when found */
+  opacity: 1;
+}
+
+.word-list li.found {
+  text-decoration: line-through;
+  text-decoration-color: var(--accent-pink);
+  text-decoration-thickness: 2px;
+}
